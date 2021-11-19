@@ -1,0 +1,27 @@
+API
+
+Producer :
+While true et toute les 2 sec (time.sleep(2)) : 
+	requete a l'API et on l'envoie avec le send un json*
+
+Consumer : 
+appliquer le traitement
+
+json.dumbs -> manipulable par python (lisible) pret a etre envoyé
+
+
+
+recuperer ccxt
+binance = ccxt.binance
+
+binance. voir
+
+rsi : 
++/-50% consolidation des achateurs vendeurs 
+-50% plus de vendeur que d'acheteur-> prix baisse - prix sous-évalué
++50% plus d'acheteur que de vendeur -> prix augmente - prix sur-évalué
+
+profondeur
+
+envoyer consumer : docker cp consumer.py c6d:/
+executer docker python : docker exec -it c6d bash
