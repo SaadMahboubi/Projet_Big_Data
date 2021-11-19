@@ -33,7 +33,7 @@ def addDataBaseCrypto(msg):
     #insértion dans un dataset
     for i in post["post"]:
         ts = time.mktime(datetime.datetime.strptime(i["published_at"], "%Y-%m-%dT%H:%M:%SZ").timetuple())
-        if ts >= ((time.time())-3600):
+        if ts >= ((time.time())-(24*3600)):
             postCryptoPanic.insert_one(i).inserted_id
 
     print(db.list_collection_names())

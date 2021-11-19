@@ -15,11 +15,11 @@ i=0
 
 while True:
     # Bitcoin
-    btc_usdt_ohlcv = binance.fetch_ohlcv('BTC/USDT','3m',limit=1000)
+    btc_usdt_ohlcv = binance.fetch_ohlcv('BTC/USDT','1m',limit=1)
     # Ethereum
-    eth_usdt_ohlcv = binance.fetch_ohlcv('ETH/USDT','3m',limit=1000)
+    eth_usdt_ohlcv = binance.fetch_ohlcv('ETH/USDT','1m',limit=1)
     # Ripple (XRP)
-    xrp_usdt_ohlcv = binance.fetch_ohlcv('XRP/USDT','3m',limit=1000)
+    xrp_usdt_ohlcv = binance.fetch_ohlcv('XRP/USDT','1m',limit=1)
     data = {'id' : i,
             'BTC': btc_usdt_ohlcv ,
             'ETH': eth_usdt_ohlcv,
@@ -28,5 +28,5 @@ while True:
     p.flush()
     i += 1
     print(data) 
-    time.sleep(60)
+    time.sleep(5)
 

@@ -29,4 +29,4 @@ while True:
   print(data)
   p.flush()
   i += 1
-  time.sleep(1800)
+  time.sleep(3600*24)
