@@ -1,10 +1,10 @@
 from kafka import KafkaConsumer
 import json
 import pprint
-from pymongo import MongoClient
 import threading
 import time
 import datetime
+from pymongo import MongoClient
 
 client = MongoClient('localhost', 27017)
 cCryptoPanic = KafkaConsumer('CryptoPanic', bootstrap_servers=['kafka:9093'], api_version=(2,6,0))
@@ -18,7 +18,6 @@ postCryptoPanic = db.posts
 postXRP = db.coursXRP
 postBTC = db.coursBTC
 postETH = db.coursETH
-
 
 postXRP.drop()
 postBTC.drop()
@@ -47,29 +46,23 @@ def addDataBaseBinance(msg):
     msg.offset
     data = json.loads(msg.value)
 
+    print(data)
     #insértion dans un dataset
 
-    dataXRP = {"id" : data['id'], "XRP" : data["BTC"]}
-    postXRP.insert_one(dataXRP).inserted_id
+    for i in data["XRP"]:
+        coursXRP = {"Timestamp" : i[0] , "open" : i[1], "High" : i[2], "low" : i[3], "close" : i[4], "volume" : i[5]}
+        print(coursXRP)
+        postXRP.insert_one(coursXRP).inserted_id
 
-    dataBTC = {"id" : data['id'], "BTC" : data["BTC"]}
-    postBTC.insert_one(dataBTC).inserted_id
+    for j in data["BTC"]:
+        coursBTC = {"Timestamp" : j[0] , "open" : j[1], "High" : j[2], "low" : j[3], "close" : j[4], "volume" : i[5]}
+        print(coursBTC)
+        postBTC.insert_one(coursBTC).inserted_id
 
-    dataETH = {"id" : data['id'], "ETH" : data["ETH"]}
-    postETH.insert_one(dataETH).inserted_id
-
-    print(db.list_collection_names())
-    for postxrp in postXRP.find():
-        pprint.pprint(postxrp)
-
-    print(db.list_collection_names())
-    for postbtc in postBTC.find():
-        pprint.pprint(postbtc)
-
-    print(db.list_collection_names())
-    for posteth in postETH.find():
-        pprint.pprint(posteth)
-    
+    for k in data["ETH"]:
+        coursETH = {"Timestamp" : k[0] , "open" : k[1], "High" : k[2], "low" : k[3], "close" : k[4], "volume" : k[5]}
+        print(coursETH)
+        postETH.insert_one(coursETH).inserted_id
 
 def mainCryptoPanic():
     for msg1 in cCryptoPanic:
