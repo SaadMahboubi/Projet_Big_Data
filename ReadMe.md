@@ -1,12 +1,13 @@
-Projet big data sur la cryptomonnaie par P. Zozor, F. Hammouch, S. Mahboubi
+## Projet big data sur la cryptomonnaie par P. Zozor, F. Hammouch, S. Mahboubi
 
-L'Objectif de ce projet est d’analyser l’impact des informations de l’univers cryptographique sur le marché des actifs 
-numériques en temps réel ainsi que le ressenti des utilisateurs sur les informations pouvant orienter le marché.
+### L'Objectif de ce projet est d’analyser l’impact des informations de l’univers cryptographique sur le marché des actifs numériques en temps réel ainsi que le ressenti des utilisateurs sur les informations pouvant orienter le marché.
 
 ➢ Veille sur notre portefeuille d’actifs numériques : Les news ont elles un impact sur la valeur des
 cryptos suivies (Bitcoin, Ethereum, XRP).
+
 ➢ Développement d’un algorithme d’achat et de vente d’actifs en temps réel en croisant nos sources
 d’informations.
+
 ➢ Essayer de détecter si des bots automatisés de trading sont connectés à notre source d'information
 cryptopanic.
 
