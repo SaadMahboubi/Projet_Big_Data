@@ -22,7 +22,7 @@ while True:
 
   #print(contenu)
   resultats = contenu["results"]
-  datacrypto= [{"id":x["id"],'currencies':x["currencies"], "title":x["title"],"published_at":x["published_at"],"votes":x["votes"], "url": x["url"]} for x in resultats]
+  datacrypto= [{'currencies':x["currencies"], "title":x["title"],"published_at":x["published_at"],"votes":x["votes"], "url": x["url"]} for x in resultats]
 
   data = {'post': datacrypto}
   p.send('CryptoPanic', json.dumps(data).encode('utf-8'))
