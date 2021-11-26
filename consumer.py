@@ -19,11 +19,6 @@ postXRP = db.coursXRP
 postBTC = db.coursBTC
 postETH = db.coursETH
 
-postXRP.drop()
-postBTC.drop()
-postETH.drop()
-postCryptoPanic.drop()
-
 #Fonction définissant si un post est bon ou mauvais
 def isGood(votes):
     good = votes["positive"]+votes["saved"]
@@ -84,6 +79,16 @@ def mainCryptoPanic():
 def mainBinance():
     for msg2 in cBinance:
         addDataBaseBinance(msg2)
+
+
+print("Répondez par 'oui' ou 'non' - Voulez vous supprimez les tables déjà présente dans la bd mongo - cette action est irréversible :")
+rep = input()
+
+if rep=="oui":
+    postXRP.drop()
+    postBTC.drop()
+    postETH.drop()
+    postCryptoPanic.drop()
 
 #Execution de deux fonction différente en même temps 
 #Afin de pouvoir recevoir deux message en même temps
